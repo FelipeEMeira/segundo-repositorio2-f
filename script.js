@@ -1,3 +1,5 @@
+import {PALAVRAS_RUINS} from "./palavrasRuins";
+
 const botaoMostraPalavras = document.querySelector('#botao-palavrachave');
 
 botaoMostraPalavras.addEventListener('click', mostraPalavraChave);
@@ -22,7 +24,7 @@ function processaTexto(texto) {
     function ordenaPalavra(p1, p2) {
         return frequencias[p2] - frequencias[p1];
     }
-    return ordenadas.slice(0,10)
+    return ordenadas.slice(0, 10)
 }
 
 function contaFrequencias(palavras) {
@@ -36,4 +38,15 @@ function contaFrequencias(palavras) {
         }
     }
     return palavras;
+}
+
+function tiraPalavrasRuins(palavras) {
+    //const PALAVRAS_RUINS = new setIntervial(["para", "uma", "nós"]); //tem muito mais no arquivo JS importado
+    const palavrasBoas =[];
+    for (let palavra of palavra) {
+        if (!PALAVRAS_RUINS.has(palavras) && palavra.lenght > 2) {
+            palavrasBoas.push(palavra);
+        }
+    }
+    return palavrasBoas;
 }
